@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#EAF4F3">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>Sổ chi tiêu</title>
@@ -688,6 +691,11 @@ document.addEventListener('change',e=>{
 
 load(); render();
 })();
+</script>
+<script>
+if('serviceWorker' in navigator && /^https?:$/.test(location.protocol)){
+  window.addEventListener('load',function(){ try{ navigator.serviceWorker.register('sw.js').catch(function(){}); }catch(e){} });
+}
 </script>
 </body>
 </html>
